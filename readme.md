@@ -15,18 +15,18 @@ PRE-REQUISITES
 1: Adapters
 Since this code can be changed to be used for multi node deployment, it by default implements the network plan for Multi node Openstack deployment
 
-+=======enp0s3 controller/host node[10.0.0.11/24]==============
-    |
-+===|===enp0s9 NAT for getting internet access to VM===========
-    |    |
++======enp0s3 controller/host node[10.0.0.11/24]======
+ .  |
++===|===enp0s9 NAT for getting internet access to VM==
+ .  |    |
 +----------------+
 |                |
 |     node       |
 |                |
 +----------------+
-  |   |
+. |   |
 +=|=======localhost 127.0.0.1(loopback/same vm communications)==================
-  |
+. |
 +=========enp0s8 Internal Host network(Provider Network)=========
 
 
@@ -35,4 +35,6 @@ Important: the details in netplan must be changed as per no of adapters configur
 fact: single node deployment can also be done with just one external host adapter(ethernet)
 
 
-!:::This is an unfinished project-use for learning purpouse only:::!
+!!>>for changes to network config edit 00-in**.yaml file in op5.sh local
+
+I have thrown in few of the many failure scripts as samples into dustbin folder incase it is needed for reference
