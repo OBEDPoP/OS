@@ -15,7 +15,9 @@ PRE-REQUISITES
 1: Adapters
 Since this code can be changed to be used for multi node deployment, it by default implements the network plan for Multi node Openstack deployment
 
-I+======enp0s3 controller/host node[10.0.0.11/24]==================
+Multi-node config:
+
+I+======enp0s3 controller/host node[10.0.0.11/24]=================
 I...||............................................................0
 I===||==enp0s9 NAT for getting internet access to VM===============
 I...||.....||.....................................................0
@@ -29,6 +31,9 @@ I+===||=====localhost 127.0.0.1(loopback/same vm communications)===
 I  |
 I+=========enp0s8 Internal Host network(Provider Network)==========
 
+Current config:
+=============NAT============
+enp0s3 -----Node------enp0s9
 
 Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network
 Important: the details in netplan must be changed as per no of adapters configured/available externally
