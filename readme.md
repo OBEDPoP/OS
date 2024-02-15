@@ -16,16 +16,16 @@ PRE-REQUISITES
 Since this code can be changed to be used for multi node deployment, it by default implements the network plan for Multi node Openstack deployment
 
 1+======enp0s3 controller/host node[10.0.0.11/24]======
-.   |
-+===|===enp0s9 NAT for getting internet access to VM===========================
-.   |    |                                                                   
-+----------------+                                                           
-|                |                                                         
-|     node       |
-|                |                                                          
-+----------------+                                                         
-. |   |                                                                         
-+=|=======localhost 127.0.0.1(loopback/same vm communications)==================
+....||.....................................................
++===||==enp0s9 NAT for getting internet access to VM==============
+....||.....||....................................................0                                                               
++----------------+.............................................. 0           
+|                |...............................................0         
+|     node       |...............................................0
+|                |...............................................0         
++----------------+...............................................0          
+....||....||.....................................................0                                                                      
++===||=====localhost 127.0.0.1(loopback/same vm communications)===
 . |
 +=========enp0s8 Internal Host network(Provider Network)=========
 
