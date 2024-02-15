@@ -32,8 +32,8 @@ I  |
 I+=========enp0s8 Internal Host network(Provider Network)==========
 
 Current config:
-one......=============NAT============
-two......enp0s3 -----Node------enp0s9
+One......=============NAT============
+Two......enp0s3 -----Node------enp0s9
 
 Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network
 Important: the details in netplan must be changed as per no of adapters configured/available externally
