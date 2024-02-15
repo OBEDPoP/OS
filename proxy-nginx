@@ -1,0 +1,37 @@
+[stream]
+stream{
+    upstream glance-api {
+        server 127.0.0.1:9292;
+    }
+    server {
+        listen 10.0.0.1:9292;
+        proxy_pass glace-api;
+    }
+    upstream nova-api {
+        server 127.0.0.1:8774;
+    }
+    server {
+        listen 10.0.0.1:8775;
+        proxy_pass nova-api;
+    }
+    upstream nova-metadata-api {
+        server 127.0.0.1:8775;
+    }
+    server {
+        listen 10.0.0.1:8775 ssl;
+        proxy_pass nova-metadata-api;
+    }
+    upstream placement-api {
+        server 127.0.0.1:8778;
+    }
+    server {
+        listen 10.0.0.1:8778 ssl;
+        proxy_pass placement-api;
+    }
+    upstream novncproxy {
+        server 127.0.0.1:6080;
+    }
+    server {
+        listen 10.0.0.1:6080 ssl;
+    }
+}

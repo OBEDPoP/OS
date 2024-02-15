@@ -1,0 +1,9 @@
+[vnc]
+enabled = True
+server_listen = 10.0.0.1
+server_proxyclient_address = 10.0.0.1
+novncproxy_host = 127.0.0.1
+novncproxy_port = 6080
+novncproxy_base_url = http://controller:6080/vnc_auto.html
+
+

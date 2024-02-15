@@ -1,0 +1,188 @@
+yeah!
+------------installig and configuring mysql------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pymysql is already the newest version (1.0.2-1ubuntu1).
+mariadb-server is already the newest version (1:10.6.16-0ubuntu0.22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+------------restart-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------Running MYSQL_SECURE_INSTALLATION-----------
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user. If you've just installed MariaDB, and
+haven't set the root password yet, you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password or using the unix_socket ensures that nobody
+can log into the MariaDB root user without the proper authorisation.
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Switch to unix_socket authentication [Y/n] Enabled successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+You already have your root account protected, so you can safely answer 'n'.
+
+Change the root password? [Y/n]  ... skipping.
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n]  ... skipping.
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n]  ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n]  ... skipping.
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n]  ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+---------------Installing Rabbit MQ-------------------
+Reading package lists...
+Building dependency tree...
+Reading state information...
+rabbitmq-server is already the newest version (3.9.13-1ubuntu0.22.04.2).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+Adding user "openstack" ...
+Setting permissions for user "openstack" in vhost "/" ...
+--------------Configuring Memcached-------------------
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-memcache is already the newest version (1.59-5).
+memcached is already the newest version (1.6.14-1ubuntu0.1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+---------------Configuring ETCD-----------------------
+Reading package lists...
+Building dependency tree...
+Reading state information...
+etcd-server is already the newest version (3.3.25+dfsg-7ubuntu0.22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+-----------------KEYSTONE SETUP------------------------
+Reading package lists...
+Building dependency tree...
+Reading state information...
+crudini is already the newest version (0.9.3-5).
+apache2 is already the newest version (2.4.52-1ubuntu4.7).
+libapache2-mod-wsgi-py3 is already the newest version (4.9.0-1ubuntu0.1).
+keystone is already the newest version (2:22.0.1-0ubuntu1~cloud0).
+python3-openstackclient is already the newest version (6.0.0-0ubuntu1~cloud0).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+2024-02-13 13:31:36.758 59211 CRITICAL keystone [-] Unhandled error: sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+pymysql:keystone:0penstack@10.0.0.11'
+2024-02-13 13:31:36.758 59211 ERROR keystone Traceback (most recent call last):
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/bin/keystone-manage", line 10, in <module>
+2024-02-13 13:31:36.758 59211 ERROR keystone     sys.exit(main())
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/manage.py", line 41, in main
+2024-02-13 13:31:36.758 59211 ERROR keystone     cli.main(argv=sys.argv, developer_config_file=developer_config)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/cli.py", line 1366, in main
+2024-02-13 13:31:36.758 59211 ERROR keystone     CONF.command.cmd_class.main()
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/cli.py", line 346, in main
+2024-02-13 13:31:36.758 59211 ERROR keystone     upgrades.offline_sync_database_to_version(
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/common/sql/upgrades.py", line 348, in offline_sync_database_to_version
+2024-02-13 13:31:36.758 59211 ERROR keystone     _db_sync(engine=engine)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/common/sql/upgrades.py", line 229, in _db_sync
+2024-02-13 13:31:36.758 59211 ERROR keystone     with sql.session_for_write() as session:
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+2024-02-13 13:31:36.758 59211 ERROR keystone     return next(self.gen)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 1054, in _transaction_scope
+2024-02-13 13:31:36.758 59211 ERROR keystone     with current._produce_block(
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+2024-02-13 13:31:36.758 59211 ERROR keystone     return next(self.gen)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 653, in _session
+2024-02-13 13:31:36.758 59211 ERROR keystone     self.session = self.factory._create_session(
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 414, in _create_session
+2024-02-13 13:31:36.758 59211 ERROR keystone     self._start()
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 504, in _start
+2024-02-13 13:31:36.758 59211 ERROR keystone     self._setup_for_connection(
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 529, in _setup_for_connection
+2024-02-13 13:31:36.758 59211 ERROR keystone     engine = engines.create_engine(
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/debtcollector/renames.py", line 43, in decorator
+2024-02-13 13:31:36.758 59211 ERROR keystone     return wrapped(*args, **kwargs)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/engines.py", line 163, in create_engine
+2024-02-13 13:31:36.758 59211 ERROR keystone     url = sqlalchemy.engine.url.make_url(sql_connection)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/sqlalchemy/engine/url.py", line 731, in make_url
+2024-02-13 13:31:36.758 59211 ERROR keystone     return _parse_rfc1738_args(name_or_url)
+2024-02-13 13:31:36.758 59211 ERROR keystone   File "/usr/lib/python3/dist-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+2024-02-13 13:31:36.758 59211 ERROR keystone     raise exc.ArgumentError(
+2024-02-13 13:31:36.758 59211 ERROR keystone sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+pymysql:keystone:0penstack@10.0.0.11'
+2024-02-13 13:31:36.758 59211 ERROR keystone [00m
+2024-02-13 13:31:38.939 59217 INFO keystone.common.fernet_utils [-] Key repository is already initialized; aborting.[00m
+2024-02-13 13:31:40.912 59218 INFO keystone.common.fernet_utils [-] Key repository is already initialized; aborting.[00m
+2024-02-13 13:31:43.302 59219 CRITICAL keystone [-] Unhandled error: sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+pymysql:keystone:0penstack@10.0.0.11'
+2024-02-13 13:31:43.302 59219 ERROR keystone Traceback (most recent call last):
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/bin/keystone-manage", line 10, in <module>
+2024-02-13 13:31:43.302 59219 ERROR keystone     sys.exit(main())
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/manage.py", line 41, in main
+2024-02-13 13:31:43.302 59219 ERROR keystone     cli.main(argv=sys.argv, developer_config_file=developer_config)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/cli.py", line 1366, in main
+2024-02-13 13:31:43.302 59219 ERROR keystone     CONF.command.cmd_class.main()
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/cli.py", line 194, in main
+2024-02-13 13:31:43.302 59219 ERROR keystone     klass.do_bootstrap()
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/cli.py", line 185, in do_bootstrap
+2024-02-13 13:31:43.302 59219 ERROR keystone     self.bootstrapper.bootstrap()
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/bootstrap.py", line 63, in bootstrap
+2024-02-13 13:31:43.302 59219 ERROR keystone     self._bootstrap_default_domain()
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/cmd/bootstrap.py", line 82, in _bootstrap_default_domain
+2024-02-13 13:31:43.302 59219 ERROR keystone     PROVIDERS.resource_api.create_domain(
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/common/manager.py", line 115, in wrapped
+2024-02-13 13:31:43.302 59219 ERROR keystone     __ret_val = __f(*args, **kwargs)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/resource/core.py", line 765, in create_domain
+2024-02-13 13:31:43.302 59219 ERROR keystone     is_domain_project = self.create_project(
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/common/manager.py", line 115, in wrapped
+2024-02-13 13:31:43.302 59219 ERROR keystone     __ret_val = __f(*args, **kwargs)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/resource/core.py", line 216, in create_project
+2024-02-13 13:31:43.302 59219 ERROR keystone     ret = self.driver.create_project(project_id, project)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/common/sql/core.py", line 528, in wrapper
+2024-02-13 13:31:43.302 59219 ERROR keystone     return method(*args, **kwargs)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/keystone/resource/backends/sql.py", line 234, in create_project
+2024-02-13 13:31:43.302 59219 ERROR keystone     with sql.session_for_write() as session:
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+2024-02-13 13:31:43.302 59219 ERROR keystone     return next(self.gen)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 1054, in _transaction_scope
+2024-02-13 13:31:43.302 59219 ERROR keystone     with current._produce_block(
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+2024-02-13 13:31:43.302 59219 ERROR keystone     return next(self.gen)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 653, in _session
+2024-02-13 13:31:43.302 59219 ERROR keystone     self.session = self.factory._create_session(
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 414, in _create_session
+2024-02-13 13:31:43.302 59219 ERROR keystone     self._start()
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 504, in _start
+2024-02-13 13:31:43.302 59219 ERROR keystone     self._setup_for_connection(
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/enginefacade.py", line 529, in _setup_for_connection
+2024-02-13 13:31:43.302 59219 ERROR keystone     engine = engines.create_engine(
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/debtcollector/renames.py", line 43, in decorator
+2024-02-13 13:31:43.302 59219 ERROR keystone     return wrapped(*args, **kwargs)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/oslo_db/sqlalchemy/engines.py", line 163, in create_engine
+2024-02-13 13:31:43.302 59219 ERROR keystone     url = sqlalchemy.engine.url.make_url(sql_connection)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/sqlalchemy/engine/url.py", line 731, in make_url
+2024-02-13 13:31:43.302 59219 ERROR keystone     return _parse_rfc1738_args(name_or_url)
+2024-02-13 13:31:43.302 59219 ERROR keystone   File "/usr/lib/python3/dist-packages/sqlalchemy/engine/url.py", line 792, in _parse_rfc1738_args
+2024-02-13 13:31:43.302 59219 ERROR keystone     raise exc.ArgumentError(
+2024-02-13 13:31:43.302 59219 ERROR keystone sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string 'mysql+pymysql:keystone:0penstack@10.0.0.11'
+2024-02-13 13:31:43.302 59219 ERROR keystone [00m
