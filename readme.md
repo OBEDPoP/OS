@@ -17,6 +17,7 @@ Since this code can be changed to be used for multi node deployment, it by defau
 
 Multi-node config:
 
+
 I+======enp0s3 controller/host node[10.0.0.11/24]=================
 I...||............................................................0
 I===||==enp0s9 NAT for getting internet access to VM===============
@@ -34,6 +35,7 @@ I+=========enp0s8 Internal Host network(Provider Network)==========
 Current config:
 One......=============NAT============
 Two......enp0s3 -----Node------enp0s9
+
 
 Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network
 Important: the details in netplan must be changed as per no of adapters configured/available externally
