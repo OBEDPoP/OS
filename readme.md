@@ -37,8 +37,8 @@ I  |
 I+=========enp0s8 Internal Host network(Provider Network)==========
 
 Current config:
-One......=============NAT============
-Two......enp0s3 -----Node------enp0s9
+Public......=============NAT============
+Private......enp0s3 -----Node------enp0s9
 
 
 Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network
