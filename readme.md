@@ -1,12 +1,16 @@
 This tool is being developed for usage in single node deployments of Openstack Cloudin Ubuntu 22.04 LTS Server
 
+make sure to become root user before running this script
+sudo su
+
 Step 1:
 Clone the repo to the VM using "git Clone"
 
 Step 2:
-Go to Ops folder
+Go into OS folder
 
 step 3:
+chmod 700 op5.sh
 run "sh op5.sh" (or) "./op5.sh
 (op5 has the latest staged script, after finding and improving from issues in previous version script, and does not carry any distint meaning to openstack)
 
