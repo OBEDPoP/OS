@@ -41,7 +41,8 @@ Public......=============NAT============
 Private......enp0s3 -----Node------enp0s9
 
 
-Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network
+Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network.
+
 Important: the details in netplan must be changed as per no of adapters configured/available externally
 fact: single node deployment can also be done with just one external host adapter(ethernet)
 
