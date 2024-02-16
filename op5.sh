@@ -60,7 +60,6 @@ cp 99-openstack.cnf /etc/mysql/mariadb.conf.d/99-openstack.cnf
 
 service mysql restart
 
-sudo crudini --set /etc/keystone/keystone.conf oslo_messaging_rabbit rabbit_host open
 mysql_secure_installation<<EOF
 0penstack
 0penstack
@@ -101,11 +100,13 @@ apt -y install libapache2-mod-wsgi-py3
 apt -y install python3-oauth2client
 
 echo "---------Creating DB for Keystone-------------"
-#create DB for keystone
-#sudo mysql -u root -p $pass "CREATE DATABASE keystone;"
-#sudo mysql -u root -p $pass "GRANT ALL PRIVILAGES ON keystone.* TO 'keystone'@'controller' IDENTIFIED BY '0penstack';"
+#----------------DB for keystone---------------------
+#mysql -u root -p $pass "CREATE DATABASE keystone;"
+#mysql -u root -p $pass "GRANT ALL PRIVILAGES ON keystone.* TO 'keystone'@'controller' IDENTIFIED BY '0penstack';"
 
-#sudo mysql -u root -p $pass "GRANT ALL PRIVILAGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY '0penstack';"
+#mysql -u root -p $pass "GRANT ALL PRIVILAGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY '0penstack';"
+
+sudo crudini --set /etc/keystone/keystone.conf oslo_messaging_rabbit rabbit_host open
 
 mysql<<EOF
 create database keystone;
