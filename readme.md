@@ -22,19 +22,29 @@ Since this code can be changed to be used for multi node deployment, it by defau
 Multi-node config:
 
 
-I+======enp0s3 controller/host node[10.0.0.11/24]=================
-I...||............................................................0
-I===||==enp0s9 NAT for getting internet access to VM===============
-I...||.....||.....................................................0
-I+----------------+...............................................0           
-I|                |...............................................0         
-I|     node       |...............................................0
-I|                |...............................................0         
-I+----------------+...............................................0          
-I....||....||.....................................................0                                                                      
-I+===||=====localhost 127.0.0.1(loopback/same vm communications)===
-I  |
-I+=========enp0s8 Internal Host network(Provider Network)==========
++======enp0s3 controller/host node[10.0.0.11/24]=================
+
+...||.............................................................0
+
+===||==enp0s9 NAT for getting internet access to VM===============
+
+...||.....||......................................................0
+
++----------------+...............................................0     
+
+|                |...............................................0  
+
+|     node       |...............................................0
+
+|                |...............................................0  
+
++----------------+...............................................0  
+
+....||....||.....................................................0    
+
++===||=====localhost 127.0.0.1(loopback/same vm communications)===
+  |
++=========enp0s8 Internal Host network(Provider Network)==========
 
 Current config:
 Public......=============NAT============
@@ -44,7 +54,8 @@ Private......enp0s3 -----Node------enp0s9
 Note: enp0s8 is optional if ony two adapters are configured then enp0s8 will become NAT network.
 
 Important: the details in netplan must be changed as per no of adapters configured/available externally
-fact: single node deployment can also be done with just one external host adapter(ethernet)
+
+Fact: single node deployment can also be done with just one external host adapter(ethernet), but might not be safe to do so.
 
 
 !!>>for changes to network config edit 00-in**.yaml file in op5.sh local
