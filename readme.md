@@ -1,3 +1,5 @@
+**#Note: code deprecated use for reference purposes only**
+
 This tool is being developed for usage in single node deployments of Openstack Cloudin Ubuntu 22.04 LTS Server
 
 make sure to become root user before running this script:
